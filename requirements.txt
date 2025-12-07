@@ -1,0 +1,45 @@
+    # -------------------------------
+# LangChain Core (Approx: 35–55 MB)
+# -------------------------------
+langchain
+langchain-core
+
+# -----------------------------------------
+# OpenAI Integration (Approx: 7–15 MB)
+# -----------------------------------------
+langchain-openai
+openai
+
+# -----------------------------------------
+# Anthropic Integration (Approx: 5–10 MB)
+# -----------------------------------------
+langchain-anthropic
+
+# ------------------------------------------------
+# Google Gemini Integration (Approx: 25–50 MB)
+# ------------------------------------------------
+langchain-google-genai
+google-generativeai
+
+# ------------------------------------------------------
+# Hugging Face Integration (Approx: 500–650 MB total)
+# ------------------------------------------------------
+langchain-huggingface
+transformers        # ~450–600 MB
+huggingface-hub     # ~20–30 MB
+
+# ------------------------------------------------------
+# Environment Variable Management (Approx: 1–3 MB)
+# ------------------------------------------------------
+python-dotenv
+
+# ------------------------------------------------------
+# Machine Learning Utilities (Approx: 200–270 MB)
+# ------------------------------------------------------
+numpy               # ~120–150 MB
+scikit-learn        # ~70–120 MB
+
+# ------------------------------------------------------
+# TOTAL EXPECTED STORAGE:
+# ~750 MB to 1 GB (without downloading any ML model)
+# ------------------------------------------------------
