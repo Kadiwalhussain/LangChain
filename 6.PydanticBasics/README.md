@@ -66,6 +66,29 @@ user = User(name="John", age="twenty", email="john@email")  # Error caught immed
 - Parsing JSON from LLMs
 - Validating LLM output
 
+### 8. **TypedDict Basics** (`8_typedict_basics.py`)
+- What is TypedDict
+- Difference from Pydantic
+- Type hints without validation
+
+### 9. **TypedDict Optional Fields** (`9_typedict_optional.py`)
+- Optional fields in TypedDict
+- Using `total=False`
+- Using `NotRequired`
+
+### 10. **TypedDict Nested Structures** (`10_typedict_nested.py`)
+- Nesting TypedDicts
+- Lists in TypedDict
+- Complex data structures
+
+### 11. **JSON Use Case in LangChain** (`11_json_usecase_langchain.py`)
+- **Complete Real-World Example!**
+- TypedDict for documentation
+- Pydantic for validation
+- Processing LLM JSON responses
+- Programmatic data access
+- Converting back to JSON
+
 ## How to Use
 
 Run any example:
@@ -174,6 +197,37 @@ Once you understand these basics:
 - Use `root_validator` for multi-field validation
 - Combine with FastAPI for web APIs
 - Use with LangChain for structured outputs
+
+## TypedDict vs Pydantic
+
+| Feature | TypedDict | Pydantic |
+|---------|-----------|----------|
+| Type Hints | ✅ Yes | ✅ Yes |
+| Runtime Validation | ❌ No | ✅ Yes |
+| Type Conversion | ❌ No | ✅ Auto |
+| Error Messages | ❌ No | ✅ Detailed |
+| Use Case | Type checking only | Data validation |
+| Best For | Documentation | LLM responses |
+
+## When to Use What?
+
+**Use TypedDict:**
+- For documentation and type hints
+- When working with plain dictionaries
+- In codebases using type checkers (mypy, pyright)
+- When you don't need runtime validation
+
+**Use Pydantic:**
+- For validating data from external sources (APIs, LLMs, files)
+- When you need automatic type conversion
+- For APIs and data pipelines
+- When you need detailed error messages
+- For LLM response parsing
+
+**Use Both Together:**
+- Define structure with TypedDict
+- Validate with Pydantic
+- Perfect for LLM responses! (See example 11)
 
 ## Pydantic vs Alternatives
 
