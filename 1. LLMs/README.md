@@ -96,7 +96,7 @@ print(response.content)
 **Configuration:**
 | Parameter | Description | Default |
 |-----------|-------------|---------|
-| `model` | Model name | gpt-3.5-turbo |
+| `model` | Model name | gpt-4o-mini |
 | `temperature` | Randomness (0-2) | 1.0 |
 | `max_tokens` | Max response length | None |
 | `api_key` | OpenAI API key | From env |
