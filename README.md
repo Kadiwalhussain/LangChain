@@ -33,6 +33,7 @@ LangChain is a framework for developing applications powered by language models.
 | **Output Parsers** | Parse LLM outputs | ✅ Complete |
 | **Chains** | Connect components | ✅ Complete |
 | **Runnables (LCEL)** | Modern composition | ✅ Complete |
+| **Text Splitters** | Split documents into chunks | ✅ Complete |
 
 ---
 
@@ -94,6 +95,11 @@ LangChain/
 │   ├── 1.Basic/                # Basic runnables
 │   ├── 2.Intermediate/         # Intermediate runnables
 │   └── 3.Advanced/             # Advanced runnables
+│
+├── 10.TextSplitters/           # Text splitting for RAG
+│   ├── 1.Basic/                # Character, Recursive, Token splitters
+│   ├── 2.Intermediate/         # Language, Markdown, HTML splitters
+│   └── 3.Advanced/             # Semantic, Custom splitters
 │
 ├── COMPLETE_GUIDE.md           # Comprehensive guide
 ├── requirements.txt            # Python dependencies
@@ -412,6 +418,71 @@ result = chain.invoke({"input": "hello"})
 
 ---
 
+### 11. Text Splitters
+
+**Location:** `10.TextSplitters/`
+
+Text splitters break down large documents into smaller chunks for LLM processing and RAG systems.
+
+```mermaid
+graph LR
+    A[Large Document] --> B[Text Splitter]
+    B --> C[Chunk 1]
+    B --> D[Chunk 2]
+    B --> E[Chunk N]
+    C --> F[Vector Store]
+    D --> F
+    E --> F
+    style B fill:#f9f
+```
+
+**Key Concepts:**
+- **Chunk size**: Maximum characters/tokens per chunk
+- **Chunk overlap**: Shared content between chunks for context
+- **Separators**: Natural boundaries (paragraphs, sentences, etc.)
+- **Semantic coherence**: Keeping related content together
+
+**Splitter Types:**
+| Type | Use Case | Best For |
+|------|----------|----------|
+| Character | Simple splitting | General text |
+| Recursive | Smart boundaries | Most use cases (recommended) |
+| Token | API limits | Production RAG |
+| Language | Code files | Python, JS, etc. |
+| Markdown | Documentation | README, docs |
+| HTML | Web content | Scraped pages |
+| Semantic | AI-powered | High-quality RAG |
+
+**Example:**
+```python
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200,
+    separators=["\n\n", "\n", ". ", " ", ""]
+)
+
+chunks = splitter.split_text(long_document)
+# Use chunks for RAG, embeddings, etc.
+```
+
+**Common Use Cases:**
+- 📄 **RAG Systems**: Split documents for vector storage
+- 🔍 **Semantic Search**: Create searchable chunks
+- 📊 **Summarization**: Process long documents in parts
+- 💬 **Q&A Systems**: Find relevant context
+
+**Why Text Splitting Matters:**
+1. LLMs have token limits (e.g., GPT-3.5: 4K, GPT-4: 8K-32K)
+2. Smaller chunks improve retrieval accuracy in RAG
+3. Context management for better responses
+4. Cost optimization (pay per token)
+
+[→ View Text Splitters Documentation](./10.TextSplitters/README.md)
+
+---
+
 ## Learning Path
 
 ```mermaid
@@ -425,10 +496,11 @@ graph TD
     G --> H[7. Output Parsers]
     H --> I[8. Chains]
     I --> J[9. Runnables]
-    J --> K[Build Applications!]
+    J --> K[10. Text Splitters]
+    K --> L[Build Applications!]
     
     style A fill:#90EE90
-    style K fill:#FFD700
+    style L fill:#FFD700
 ```
 
 ### Recommended Order:
@@ -440,7 +512,8 @@ graph TD
 | 3 | Structured Output + Pydantic | Data Validation |
 | 4 | Output Parsers | Parsing |
 | 5 | Chains + Runnables | Composition |
-| 6 | Build Projects | Application |
+| 6 | Text Splitters | Document Processing |
+| 7 | Build Projects | Application |
 
 ---
 
