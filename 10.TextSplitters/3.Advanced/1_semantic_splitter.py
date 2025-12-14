@@ -232,10 +232,12 @@ Document: 1000 words ≈ 1333 tokens
 Sentences: ~50 sentences
 Embeddings needed: 50 calls
 
-Cost: 50 sentences × $0.0001/1K tokens ≈ $0.0067 per document
+Cost (text-embedding-3-small): 50 sentences × $0.00002/1K tokens ≈ $0.0013 per document
 
-For 1000 documents: ~$6.70
-For 10,000 documents: ~$67.00
+For 1000 documents: ~$1.30
+For 10,000 documents: ~$13.00
+
+Note: Prices vary by model and provider. Check current pricing.
 
 💡 Optimization Tips:
 
@@ -321,7 +323,7 @@ splitter = SemanticChunker(
     breakpoint_threshold_type="percentile",
     breakpoint_threshold_amount=90,  # Lower = more splits
     number_of_chunks=None,  # Or specify exact number
-    sentence_split_regex=r"(?<=[.!?])\\s+"  # Custom sentence detection
+    sentence_split_regex=r"(?<=[.!?])\s+"  # Custom sentence detection
 )
 
 Usage:

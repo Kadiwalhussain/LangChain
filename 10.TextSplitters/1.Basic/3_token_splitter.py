@@ -277,7 +277,7 @@ splitter = TokenTextSplitter(
 )
 
 # Common encodings:
-# - cl100k_base: GPT-4, GPT-3.5-turbo
-# - p50k_base: Codex models
-# - r50k_base: GPT-3 models (davinci, curie, etc.)
+# - cl100k_base: GPT-4, GPT-3.5-turbo, text-embedding-3-*
+# - p50k_base: Legacy GPT-3 models (text-davinci-002, text-davinci-003)
+# - r50k_base: Older GPT-3 models (davinci, curie, babbage, ada)
 """)
