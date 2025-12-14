@@ -470,8 +470,8 @@ graph TB
 
 ### Feature Comparison
 
-| Splitter | Speed | Accuracy | Cost | Complexity |
-|----------|-------|----------|------|------------|
+| Splitter | Speed | Precision | Cost | Complexity |
+|----------|-------|-----------|------|------------|
 | Character | ⚡⚡⚡ | ⭐⭐ | Free | 🔧 |
 | Recursive | ⚡⚡⚡ | ⭐⭐⭐⭐ | Free | 🔧 |
 | Token | ⚡⚡ | ⭐⭐⭐⭐⭐ | Free | 🔧🔧 |
@@ -479,6 +479,8 @@ graph TB
 | Markdown | ⚡⚡⚡ | ⭐⭐⭐⭐ | Free | 🔧 |
 | HTML | ⚡⚡ | ⭐⭐⭐⭐ | Free | 🔧🔧 |
 | Semantic | ⚡ | ⭐⭐⭐⭐⭐ | $$$ | 🔧🔧🔧 |
+
+**Note:** "Precision" refers to Token for exact token counting, and Semantic for semantic coherence.
 
 ### Decision Tree
 
