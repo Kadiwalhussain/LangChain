@@ -232,12 +232,13 @@ Document: 1000 words ≈ 1333 tokens
 Sentences: ~50 sentences
 Embeddings needed: 50 calls
 
-Cost (text-embedding-3-small): 50 sentences × $0.00002/1K tokens ≈ $0.0013 per document
+Example Cost (OpenAI text-embedding-3-small): ~$0.0013 per document
 
 For 1000 documents: ~$1.30
 For 10,000 documents: ~$13.00
 
-Note: Prices vary by model and provider. Check current pricing.
+⚠️  Note: Pricing varies by provider and changes frequently.
+   Always check current pricing at your provider's website.
 
 💡 Optimization Tips:
 

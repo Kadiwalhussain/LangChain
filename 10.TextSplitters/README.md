@@ -520,15 +520,16 @@ graph TB
 ### 1. Choose Appropriate Chunk Size
 
 ```python
-# ✅ Good - Based on use case
-chunk_size = 1000  # For GPT-3.5 context
-chunk_size = 500   # For embedding models
-chunk_size = 2000  # For GPT-4 context
+# ✅ Good - Based on use case and model
+chunk_size = 1000  # For GPT-3.5-Turbo (4K) or embedding models
+chunk_size = 500   # For smaller embedding models
+chunk_size = 2000  # For GPT-3.5-Turbo-16K or GPT-4
+chunk_size = 4000  # For GPT-4-32K or larger contexts
 
 # ❌ Too small - loses context
 chunk_size = 100
 
-# ❌ Too large - exceeds limits
+# ❌ Too large - may exceed limits
 chunk_size = 10000
 ```
 

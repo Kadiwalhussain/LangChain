@@ -20,8 +20,8 @@ understanding and generating human-like text. These models are trained on divers
 internet text and can perform tasks ranging from translation to code generation.
 
 The key challenge with LLMs is managing their context window. Each model has a maximum 
-number of tokens it can process at once. For example, GPT-3.5 has a 4,096 token limit, 
-while GPT-4 can handle up to 32,000 tokens in some versions.
+number of tokens it can process at once. For example, GPT-3.5-Turbo has variants with 
+4K, 16K token limits, while GPT-4 can handle 8K to 128K tokens depending on the version.
 
 Token counting is crucial because:
 1. API costs are calculated per token
