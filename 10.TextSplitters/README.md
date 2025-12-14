@@ -2,6 +2,12 @@
 
 > From Basic to Advanced: Everything you need to know about splitting text for LLM applications
 
+**Note**: LLM capabilities and pricing change frequently. Always check current model documentation for:
+- Token limits and context windows
+- API pricing
+- Supported encodings
+- Model-specific features
+
 ## 📚 Table of Contents
 
 1. [What are Text Splitters?](#what-are-text-splitters)

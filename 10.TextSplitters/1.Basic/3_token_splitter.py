@@ -198,14 +198,14 @@ Recommended Settings by Model:
 2. GPT-3.5-Turbo-16K (16K context):
    chunk_size=2000, chunk_overlap=200
    
-3. GPT-4 (8K context):
-   chunk_size=1000, chunk_overlap=100
+3. GPT-4 (8K-128K context, varies by version):
+   chunk_size=1000-4000, chunk_overlap=100-400
    
-4. GPT-4-32K (32K context):
-   chunk_size=4000, chunk_overlap=400
-
-5. Claude 2 (100K context):
+4. Claude (100K-200K context, varies by version):
    chunk_size=10000, chunk_overlap=1000
+
+Note: Model context windows change frequently. Always check current documentation
+for your specific model version.
 
 ⚠️  Important: Leave room for prompts and responses!
    If model has 4K tokens, use max 2K for chunks to leave
@@ -276,8 +276,10 @@ splitter = TokenTextSplitter(
     chunk_overlap=50
 )
 
-# Common encodings:
-# - cl100k_base: GPT-4, GPT-3.5-turbo, text-embedding-3-*
+# Common encodings (check model documentation for specific encoding):
+# - cl100k_base: GPT-4, GPT-3.5-turbo, and newer models
 # - p50k_base: Legacy GPT-3 models (text-davinci-002, text-davinci-003)
 # - r50k_base: Older GPT-3 models (davinci, curie, babbage, ada)
+#
+# Note: Always verify the correct encoding for your specific model version
 """)
