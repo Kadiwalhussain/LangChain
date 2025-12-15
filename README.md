@@ -584,4 +584,4 @@ This project is open source and available under the MIT License.
 
 **Happy Learning! 🚀**
 
-Start with the basics and work your way up. Each module builds on the previous one!
+Start with the basics and work your way up. Each module builds on the previous one! Updated
