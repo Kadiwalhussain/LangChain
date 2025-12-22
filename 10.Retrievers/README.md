@@ -246,15 +246,14 @@ results = retriever.get_relevant_documents("Python programming")
 ```mermaid
 graph TB
     A[User Question] --> B[Retriever]
-    B --> C[Relevant Docs]
-    C --> D[Format Prompt]
-    D --> E["Context: {docs}<br/>Question: {question}"]
-    E --> F[LLM]
-    F --> G[Answer]
+    B --> C[Relevant Documents]
+    C --> D[Build Prompt With Context]
+    D --> E[Prompt Sent To LLM]
+    E --> F[Answer]
     
     style B fill:#FFD700
-    style F fill:#87CEEB
-    style G fill:#90EE90
+    style E fill:#87CEEB
+    style F fill:#90EE90
 ```
 
 **Example:**

@@ -22,8 +22,8 @@ Vector Stores (Vector Databases) store high-dimensional vectors (embeddings) and
 
 ```mermaid
 graph LR
-    A[Text:<br/>"machine learning"] --> B[Embedding Model]
-    B --> C[Vector:<br/>[0.2, 0.8, ...]]
+    A[Input Text] --> B[Embedding Model]
+    B --> C[Vector Representation]
     C --> D[Vector Store]
     D --> E[Similarity Search]
     
@@ -43,16 +43,15 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Traditional Database"
-        A1[Query: "ML"] --> B1[Exact Match]
-        B1 --> C1["Find 'ML'"]
-        C1 --> D1[Limited Results]
+    subgraph TraditionalDatabase
+        A1[Keyword Query] --> B1[Exact Match Engine]
+        B1 --> C1[Limited Results]
     end
     
-    subgraph "Vector Database"
-        A2[Query: "ML"] --> B2[Convert to Vector]
+    subgraph VectorDatabase
+        A2[Semantic Query] --> B2[Convert To Vector]
         B2 --> C2[Similarity Search]
-        C2 --> D2["Finds: ML, Machine Learning,<br/>AI, Deep Learning, etc."]
+        C2 --> D2[Semantically Related Results]
     end
     
     style C2 fill:#FFD700
@@ -64,17 +63,17 @@ graph TB
 ```mermaid
 graph TB
     A[Query Text] --> B[Embed Query]
-    B --> C[Query Vector:<br/>[0.1, 0.9, 0.3, ...]]
+    B --> C[Query Vector]
     
-    D[Vector Store] --> E[Stored Vectors:<br/>Doc1: [0.2, 0.8, 0.4, ...]<br/>Doc2: [0.7, 0.3, 0.1, ...]<br/>Doc3: [0.1, 0.9, 0.3, ...]]
+    D[Vector Store] --> E[Stored Vectors]
     
     C --> F[Calculate Similarity]
     E --> F
     
-    F --> G[Cosine Similarity]
-    G --> H[Doc3: 0.99 ✅<br/>Doc1: 0.85<br/>Doc2: 0.34]
+    F --> G[Cosine Similarity Scores]
+    G --> H[Ranked Documents]
     
-    H --> I[Return Top K<br/>Most Similar]
+    H --> I[Return Top K Results]
     
     style F fill:#FFD700
     style I fill:#90EE90

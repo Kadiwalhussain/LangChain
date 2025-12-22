@@ -22,10 +22,10 @@ Text Splitters break down large documents into smaller chunks that fit within LL
 
 ```mermaid
 graph LR
-    A[Large Document<br/>10,000 words] --> B[Text Splitter]
-    B --> C[Chunk 1<br/>500 words]
-    B --> D[Chunk 2<br/>500 words]
-    B --> E[Chunk N<br/>500 words]
+    A[Large Document] --> B[Text Splitter]
+    B --> C[Chunk 1]
+    B --> D[Chunk 2]
+    B --> E[Chunk N]
     
     style B fill:#FFD700
     style C fill:#90EE90
@@ -41,17 +41,17 @@ graph LR
 
 ```mermaid
 graph TD
-    A[Problem] --> B[LLMs have context limits]
-    A --> C[Large documents exceed limits]
-    A --> D[Need relevant portions only]
+    A[Problem] --> B[LLMs Have Context Limits]
+    A --> C[Documents Too Large]
+    A --> D[Need Only Relevant Parts]
     
-    B --> E[Solution:<br/>Text Splitting]
+    B --> E[Use Text Splitting]
     C --> E
     D --> E
     
-    E --> F[Smaller chunks]
-    E --> G[Fit in context]
-    E --> H[Better retrieval]
+    E --> F[Smaller Chunks]
+    E --> G[Fit In Context]
+    E --> H[Better Retrieval]
     
     style A fill:#FF6B6B
     style E fill:#FFD700
@@ -78,29 +78,29 @@ graph TD
 
 ```mermaid
 graph TB
-    subgraph "Input"
-        A[Large Document<br/>Text: 50,000 chars]
+    subgraph Input
+        A[Large Document]
     end
     
-    subgraph "Configuration"
-        B[Chunk Size: 1000]
-        C[Chunk Overlap: 200]
+    subgraph Configuration
+        B[Chunk Size]
+        C[Chunk Overlap]
         D[Separators]
     end
     
-    subgraph "Splitting Process"
-        E[Text Splitter] --> F{Split by Separator}
-        F -->|Paragraph| G[Try \\n\\n]
-        F -->|Line| H[Try \\n]
-        F -->|Space| I[Try space]
-        F -->|Character| J[Force split]
+    subgraph SplittingProcess
+        E[Text Splitter] --> F{Choose Separator}
+        F --> G[Split On Paragraphs]
+        F --> H[Split On Lines]
+        F --> I[Split On Spaces]
+        F --> J[Split On Characters]
     end
     
-    subgraph "Output"
-        K[Chunk 1: 0-1000]
-        L[Chunk 2: 800-1800]
-        M[Chunk 3: 1600-2600]
-        N[Chunk N...]
+    subgraph Output
+        K[Chunk 1]
+        L[Chunk 2]
+        M[Chunk 3]
+        N[More Chunks]
     end
     
     A --> E
@@ -123,12 +123,12 @@ graph TB
 
 ```mermaid
 graph TD
-    A["Document: ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+    A[Full Text ABCDEFGHIJKLMNOPQRSTUVWXYZ]
     
-    B["Chunk 1: ABCDEFGH"]
-    C["Chunk 2: ----EFGHIJKL"]
-    D["Chunk 3: --------IJKLMNOP"]
-    E["Chunk 4: ------------MNOPQRST"]
+    B[Chunk 1 ABCDEFGH]
+    C[Chunk 2 EFGHIJKL]
+    D[Chunk 3 IJKLMNOP]
+    E[Chunk 4 MNOPQRST]
     
     A --> B
     A --> C
@@ -183,11 +183,11 @@ graph TD
 
 ```mermaid
 graph LR
-    A[Text] --> B[Find Separator<br/>e.g. \\n\\n]
-    B --> C[Split at Separator]
-    C --> D[Check Size]
-    D -->|Too Large| E[Force Split]
-    D -->|OK| F[Chunk]
+    A[Input Text] --> B[Find Separator]
+    B --> C[Split On Separator]
+    C --> D[Check Chunk Size]
+    D --> E[Force Split If Too Large]
+    D --> F[Use Chunk If OK]
     
     style B fill:#FFD700
 ```
@@ -229,16 +229,16 @@ for i, chunk in enumerate(chunks):
 
 ```mermaid
 graph TD
-    A[Start] --> B{Try \\n\\n<br/>Paragraph}
-    B -->|Success| C[Split]
-    B -->|Failed| D{Try \\n<br/>Line}
-    D -->|Success| C
-    D -->|Failed| E{Try Space}
-    E -->|Success| C
-    E -->|Failed| F{Try Character}
+    A[Start] --> B[Try Paragraph Separator]
+    B --> C[Split Success]
+    B --> D[Try Line Separator]
+    D --> C
+    D --> E[Try Space Separator]
+    E --> C
+    E --> F[Try Character Split]
     F --> C
     
-    C --> G[Chunks]
+    C --> G[Final Chunks]
     
     style B fill:#FFD700
     style C fill:#90EE90
