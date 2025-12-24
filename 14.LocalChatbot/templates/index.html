@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Chatbot - No API Keys Required!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-robot"></i> Local Chatbot</h1>
+            <p class="subtitle">100% Local - No API Keys Required!</p>
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span id="statusText">Checking status...</span>
+            </div>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="youtube">
+                <i class="fab fa-youtube"></i> YouTube Q&A
+            </button>
+            <button class="tab-btn" data-tab="documents">
+                <i class="fas fa-file-alt"></i> Document Q&A
+            </button>
+            <button class="tab-btn" data-tab="chat">
+                <i class="fas fa-comments"></i> General Chat
+            </button>
+        </div>
+
+        <!-- YouTube Tab -->
+        <div class="tab-content active" id="youtube-tab">
+            <div class="section">
+                <h2><i class="fab fa-youtube"></i> YouTube Video Q&A</h2>
+                <p class="description">Load any YouTube video and ask questions about it!</p>
+                
+                <div class="input-group">
+                    <input type="text" id="youtubeUrl" placeholder="Paste YouTube URL here..." class="input-field">
+                    <button id="loadVideoBtn" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Load Video
+                    </button>
+                </div>
+                
+                <div id="videoInfo" class="video-info" style="display: none;">
+                    <h3 id="videoTitle"></h3>
+                    <p id="videoStats"></p>
+                </div>
+                
+                <div class="chat-container" id="youtubeChat">
+                    <div class="messages" id="youtubeMessages"></div>
+                    <div class="input-area">
+                        <input type="text" id="youtubeQuestion" placeholder="Ask a question about the video..." class="input-field">
+                        <button id="youtubeSendBtn" class="btn btn-send">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documents Tab -->
+        <div class="tab-content" id="documents-tab">
+            <div class="section">
+                <h2><i class="fas fa-file-alt"></i> Document Q&A</h2>
+                <p class="description">Upload documents (PDF, TXT, MD) and ask questions!</p>
+                
+                <div class="upload-area">
+                    <input type="file" id="fileInput" accept=".pdf,.txt,.md,.markdown" style="display: none;">
+                    <label for="fileInput" class="upload-label">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Click to upload or drag and drop</span>
+                        <small>PDF, TXT, MD files supported</small>
+                    </label>
+                </div>
+                
+                <div id="documentList" class="document-list"></div>
+                
+                <div class="chat-container" id="documentChat">
+                    <div class="messages" id="documentMessages"></div>
+                    <div class="input-area">
+                        <select id="documentSelect" class="input-field" style="margin-bottom: 10px;">
+                            <option value="">Select a document...</option>
+                        </select>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="documentQuestion" placeholder="Ask a question about the document..." class="input-field">
+                            <button id="documentSendBtn" class="btn btn-send">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- General Chat Tab -->
+        <div class="tab-content" id="chat-tab">
+            <div class="section">
+                <h2><i class="fas fa-comments"></i> General Chat</h2>
+                <p class="description">Free-form conversation with local AI</p>
+                
+                <div class="chat-container" id="generalChat">
+                    <div class="messages" id="generalMessages">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                <p>Hello! I'm a local AI chatbot running on Ollama. How can I help you today?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-area">
+                        <input type="text" id="generalMessage" placeholder="Type your message..." class="input-field">
+                        <button id="generalSendBtn" class="btn btn-send">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clear Button -->
+        <div class="footer">
+            <button id="clearBtn" class="btn btn-secondary">
+                <i class="fas fa-trash"></i> Clear All
+            </button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+
