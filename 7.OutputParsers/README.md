@@ -356,17 +356,17 @@ chain = llm | parser
 
 ```mermaid
 graph TB
-    subgraph "Input Phase"
+    subgraph InputPhase["Input Phase"]
         A[User Question] --> B[Create Prompt]
         B --> C[Add Format Instructions]
     end
     
-    subgraph "LLM Phase"
+    subgraph LLMPhase["LLM Phase"]
         C --> D[Send to LLM]
         D --> E[LLM Generates Response]
     end
     
-    subgraph "Parser Phase"
+    subgraph ParserPhase["Parser Phase"]
         E --> F{Parser Type?}
         F -->|String| G[Return as String]
         F -->|List| H[Split by Comma]
@@ -375,7 +375,7 @@ graph TB
         F -->|Custom| K[Custom Logic]
     end
     
-    subgraph "Output Phase"
+    subgraph OutputPhase["Output Phase"]
         G --> L[Structured Data]
         H --> L
         I --> L

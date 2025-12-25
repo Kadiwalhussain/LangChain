@@ -85,7 +85,7 @@ LangChain uses different message types to structure conversations:
 
 ```mermaid
 graph TB
-    subgraph "Message Types"
+    subgraph MessageTypes["Message Types"]
         A[SystemMessage] --> D[Chat Model]
         B[HumanMessage] --> D
         C[AIMessage] --> D

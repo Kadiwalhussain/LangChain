@@ -50,7 +50,7 @@ Document(
 
 ```mermaid
 graph TB
-    subgraph "Phase 1: Loading"
+    subgraph Phase1["Phase 1: Loading"]
         A[Raw Data Source] --> B{Document Loader}
         B -->|File| C[FileLoader]
         B -->|URL| D[WebLoader]
@@ -58,7 +58,7 @@ graph TB
         B -->|API| F[APILoader]
     end
     
-    subgraph "Phase 2: Processing"
+    subgraph Phase2["Phase 2: Processing"]
         C --> G[Document Objects]
         D --> G
         E --> G
@@ -66,12 +66,12 @@ graph TB
         G --> H[Add Metadata]
     end
     
-    subgraph "Phase 3: Splitting"
+    subgraph Phase3["Phase 3: Splitting"]
         H --> I[Text Splitter]
         I --> J[Document Chunks]
     end
     
-    subgraph "Phase 4: Storage"
+    subgraph Phase4["Phase 4: Storage"]
         J --> K[Embeddings]
         K --> L[Vector Store]
     end

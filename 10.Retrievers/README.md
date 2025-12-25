@@ -72,25 +72,25 @@ response = llm.invoke(f"Context: {docs}\n\nQuestion: {query}")
 
 ```mermaid
 graph TB
-    subgraph "1. Data Ingestion"
+    subgraph DataIngestion["1. Data Ingestion"]
         A[Raw Documents] --> B[Text Splitter]
         B --> C[Document Chunks]
         C --> D[Embedding Model]
         D --> E[Vector Store]
     end
     
-    subgraph "2. Query Processing"
+    subgraph QueryProcessing["2. Query Processing"]
         F[User Query] --> G[Query Embedding]
         G --> H[Retriever]
     end
     
-    subgraph "3. Retrieval"
+    subgraph Retrieval["3. Retrieval"]
         H --> E
         E --> I[Similarity Search]
         I --> J[Top-K Documents]
     end
     
-    subgraph "4. Generation"
+    subgraph Generation["4. Generation"]
         J --> K[Context + Query]
         K --> L[LLM]
         L --> M[Final Answer]
@@ -679,19 +679,19 @@ docs = retriever.get_relevant_documents("query")
 
 ```mermaid
 graph TB
-    subgraph "Vector Search"
+    subgraph VectorSearch["Vector Search"]
         A[Query] --> B[Embedding]
         B --> C[Cosine Similarity]
         C --> D[Semantic Results]
     end
     
-    subgraph "Keyword Search"
+    subgraph KeywordSearch["Keyword Search"]
         A --> E[Tokenization]
         E --> F[BM25 Scoring]
         F --> G[Keyword Results]
     end
     
-    subgraph "Fusion"
+    subgraph Fusion["Fusion"]
         D --> H[Reciprocal Rank<br/>Fusion Algorithm]
         G --> H
         H --> I[Optimally Ranked<br/>Final Results]
@@ -837,7 +837,7 @@ for doc in result['source_documents']:
 
 ```mermaid
 graph TB
-    subgraph "Conversation History"
+    subgraph ConversationHistory["Conversation History"]
         A[Previous Messages] --> B[Memory]
     end
     
@@ -964,19 +964,19 @@ docs = retriever.get_relevant_documents("machine learning")
 
 ```mermaid
 graph TB
-    subgraph "Phase 1: Data Preparation"
+    subgraph Phase1["Phase 1: Data Preparation"]
         A[Raw Documents] --> B[Text Splitter<br/>Chunk Size: 1000]
         B --> C[Document Chunks]
         C --> D[Embedding Model<br/>OpenAI/HuggingFace]
         D --> E[Vector Store<br/>Chroma/Pinecone]
     end
     
-    subgraph "Phase 2: Query Processing"
+    subgraph Phase2["Phase 2: Query Processing"]
         F[User Query] --> G[Query Preprocessing<br/>Clean, Expand]
         G --> H[Query Embedding]
     end
     
-    subgraph "Phase 3: Retrieval"
+    subgraph Phase3["Phase 3: Retrieval"]
         H --> I[Hybrid Retriever<br/>Vector + BM25]
         I --> E
         E --> J[Top-K Candidates<br/>K=20]
@@ -984,7 +984,7 @@ graph TB
         K --> L[Top-N Final<br/>N=3-5]
     end
     
-    subgraph "Phase 4: Generation"
+    subgraph Phase4["Phase 4: Generation"]
         L --> M[Context Assembly]
         F --> M
         M --> N[Prompt Template<br/>Context + Question]
@@ -992,7 +992,7 @@ graph TB
         O --> P[Answer Generation]
     end
     
-    subgraph "Phase 5: Post-Processing"
+    subgraph Phase5["Phase 5: Post-Processing"]
         P --> Q[Citation Extraction]
         Q --> R[Answer Formatting]
         R --> S[Final Response<br/>with Sources]

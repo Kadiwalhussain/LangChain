@@ -78,17 +78,17 @@ graph TD
 
 ```mermaid
 graph TB
-    subgraph Input
+    subgraph Input["Input"]
         A[Large Document]
     end
     
-    subgraph Configuration
+    subgraph Configuration["Configuration"]
         B[Chunk Size]
         C[Chunk Overlap]
         D[Separators]
     end
     
-    subgraph SplittingProcess
+    subgraph SplittingProcess["Splitting Process"]
         E[Text Splitter] --> F{Choose Separator}
         F --> G[Split On Paragraphs]
         F --> H[Split On Lines]
@@ -96,7 +96,7 @@ graph TB
         F --> J[Split On Characters]
     end
     
-    subgraph Output
+    subgraph Output["Output"]
         K[Chunk 1]
         L[Chunk 2]
         M[Chunk 3]

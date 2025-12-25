@@ -62,18 +62,18 @@ graph TD
 
 ```mermaid
 graph LR
-    subgraph "Output Parsers"
+    subgraph OutputParsers["Output Parsers"]
         A1[LLM Output] --> A2[Parser]
         A2 --> A3[Structured Data]
     end
     
-    subgraph "Chains"
+    subgraph Chains["Chains"]
         B1[Input] --> B2[Chain Step 1]
         B2 --> B3[Chain Step 2]
         B3 --> B4[Output]
     end
     
-    subgraph "Runnables LCEL"
+    subgraph RunnablesLCEL["Runnables LCEL"]
         C1[Input] --> C2[Component1 | Component2 | Component3]
         C2 --> C3[Output]
     end

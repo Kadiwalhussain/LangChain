@@ -43,12 +43,12 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph TraditionalDatabase
+    subgraph Traditional["Traditional Database"]
         A1[Keyword Query] --> B1[Exact Match Engine]
         B1 --> C1[Limited Results]
     end
     
-    subgraph VectorDatabase
+    subgraph Vector["Vector Database"]
         A2[Semantic Query] --> B2[Convert To Vector]
         B2 --> C2[Similarity Search]
         C2 --> D2[Semantically Related Results]
@@ -114,31 +114,31 @@ Where:
 
 ```mermaid
 graph TB
-    subgraph "Phase 1: Ingestion"
+    subgraph Phase1["Phase 1: Ingestion"]
         A[Documents] --> B[Text Splitter]
         B --> C[Document Chunks]
         C --> D[Embedding Model]
         D --> E[Vectors]
     end
     
-    subgraph "Phase 2: Storage"
+    subgraph Phase2["Phase 2: Storage"]
         E --> F[Vector Store]
         F --> G[Index Creation]
         G --> H[Optimized Storage]
     end
     
-    subgraph "Phase 3: Query"
+    subgraph Phase3["Phase 3: Query"]
         I[Query] --> J[Embed Query]
         J --> K[Query Vector]
     end
     
-    subgraph "Phase 4: Search"
+    subgraph Phase4["Phase 4: Search"]
         K --> L[Similarity Search]
         H --> L
         L --> M[Top K Results]
     end
     
-    subgraph "Phase 5: Retrieval"
+    subgraph Phase5["Phase 5: Retrieval"]
         M --> N[Retrieve Docs]
         N --> O[Return to User]
     end

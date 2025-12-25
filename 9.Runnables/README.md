@@ -277,29 +277,29 @@ result = chain.invoke(input)
 
 ```mermaid
 graph TB
-    subgraph "Input Phase"
+    subgraph InputPhase["Input Phase"]
         A[User Input] --> B[Prompt Template]
     end
     
-    subgraph "Processing Options"
+    subgraph ProcessingOptions["Processing Options"]
         B --> C{Execution Type?}
         C -->|Sequential| D[Chain 1 → Chain 2 → Chain 3]
         C -->|Parallel| E[Chain 1 + Chain 2 + Chain 3]
         C -->|Conditional| F[If-Then-Else Routing]
     end
     
-    subgraph "LLM Phase"
+    subgraph LLMPhase["LLM Phase"]
         D --> G[LLM]
         E --> G
         F --> G
     end
     
-    subgraph "Output Phase"
+    subgraph OutputPhase["Output Phase"]
         G --> H[Output Parser]
         H --> I[Structured Result]
     end
     
-    subgraph "Enhancement"
+    subgraph Enhancement["Enhancement"]
         I --> J{Need Retry?}
         J -->|Yes| K[Fallback Chain]
         J -->|No| L[Return Result]
