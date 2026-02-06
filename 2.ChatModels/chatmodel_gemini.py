@@ -11,7 +11,3 @@ model = ChatGoogleGenAI(
 result = model.invoke("what is the capital of india?")
 print(result.content)
 
-
-
-
-#working on the langraph
