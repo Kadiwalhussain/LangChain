@@ -7,6 +7,7 @@ load_dotenv()
 # Using Azure OpenAI embeddings
 embeddings = AzureOpenAIEmbeddings(
     azure_deployment=os.getenv("AZURE_DEPLOYMENT_NAME"),
+    #we need to pay for the api
     azure_endpoint=os.getenv("AZURE_ENDPOINT"),
     openai_api_version="2023-05-15"
 )
