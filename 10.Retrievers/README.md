@@ -56,7 +56,7 @@ graph LR
 # Without Retriever
 query = "What's our company's vacation policy?"
 response = llm.invoke(query)
-# Returns: Generic/guessed answer ❌
+# Returns: Generic/guessed answer ❌❌❌
 
 # With Retriever
 docs = retriever.get_relevant_documents(query)
